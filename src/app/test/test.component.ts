@@ -5,21 +5,26 @@ import { Component, OnInit } from '@angular/core';
   template: `<h2>
                 Welcome {{ name }}
               </h2>
-              <input [id]= "myId" type="text" value="Rushikesh"/>
-              <input bind-disabled="isDisabled" id= {{myId}} type="text" value="Rushikesh"/>`,
-  styleUrls: []
+             <button (click)="onClick($event)">Greet</button>
+             <button (click)="greeting='Welcome Rushikesh'">Greet</button>
+             {{greeting}}
+    `,
+  styles: []
 })
 export class TestComponent implements OnInit {
 
   public name = "Rushikesh";
-  public myId = "testId";
-  public isDisabled = true;
+  public greeting = "";
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  onClick(event){
+    console.log(event);
+    this.greeting = event.type
+  }
   
 
 }
